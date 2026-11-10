@@ -1,0 +1,56 @@
+{
+	"name": "dynamic-project-title",
+	"displayName": "Dynamic Project Title",
+	"description": "Dynamically sets the VS Code window title from project configuration files.",
+	"version": "0.0.1",
+	"publisher": "rigid-design",
+	"icon": "icon.png",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.145.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onStartupFinished"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"configurationDefaults": {
+			"window.title": "${projectTitle}${separator}${activeEditorShort}"
+		},
+		"commands": [
+			{
+				"command": "dynamic-project-title.setCustomTitle",
+				"title": "Dynamic Project Title: Set Custom Window Title"
+			},
+			{
+				"command": "dynamic-project-title.removeCustomTitle",
+				"title": "Dynamic Project Title: Remove Custom Window Title"
+			}
+		]
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/rigiddesign/rigidVSCode-dynamic-project-title.git"
+	},
+	"scripts": {
+		"lint": "eslint .",
+		"pretest": "npm run lint",
+		"test": "vscode-test"
+	},
+	"devDependencies": {
+		"@types/mocha": "^10.0.10",
+		"@types/node": "24.x",
+		"@types/vscode": "^1.145.0",
+		"@vscode/test-cli": "^0.0.15",
+		"@vscode/test-electron": "^3.0.0",
+		"eslint": "^10.5.0",
+		"globals": "^17.14.0"
+	},
+	"overrides": {
+		"diff": "^8.0.4",
+		"serialize-javascript": "^7.0.6"
+	}
+}
